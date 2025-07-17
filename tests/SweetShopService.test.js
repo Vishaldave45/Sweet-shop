@@ -20,3 +20,9 @@ test('should delete a sweet by ID', () => {
   shop.deleteSweet(2);
   expect(shop.viewSweets()).not.toContainEqual(sweet);
 });
+
+test('should search sweets by name', () => {
+  shop.addSweet({ id: 3, name: 'Rasgulla', category: 'Milk-Based', price: 15, quantity: 40 });
+  const results = shop.searchByName('Rasgulla');
+  expect(results.length).toBe(1);
+});

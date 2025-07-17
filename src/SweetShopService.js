@@ -15,6 +15,10 @@ class SweetShopService {
   this.sweets = this.sweets.filter(s => s.id !== id);
 }
 
+searchByName(name) {
+  return this.sweets.filter(s => s.name.toLowerCase().includes(name.toLowerCase()));
+}
+
 }
 
 
