@@ -31,6 +31,11 @@ purchaseSweet(id, qty) {
   sweet.quantity -= qty;
 }
 
+restockSweet(id, qty) {
+  const sweet = this.sweets.find(s => s.id === id);
+  if (sweet) sweet.quantity += qty;
+}
+
 }
 
 
