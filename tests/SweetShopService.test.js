@@ -45,3 +45,8 @@ test('should throw error if not enough stock', () => {
   expect(() => shop.purchaseSweet(7, 3)).toThrow('Insufficient stock');
 });
 
+test('should increase stock when restocked', () => {
+  shop.addSweet({ id: 8, name: 'Peda', category: 'Milk-Based', price: 18, quantity: 10 });
+  shop.restockSweet(8, 5);
+  expect(shop.viewSweets()[0].quantity).toBe(15);
+});
