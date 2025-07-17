@@ -11,8 +11,8 @@ const App = () => {
   const [sweets, setSweets] = useState([]);
 
   const handleView = () => {
-    shop.addSweet({ id: 1, name: 'Kaju Katli', category: 'Nut-Based', price: 50, quantity: 20 });
-    shop.addSweet({ id: 2, name: 'Gulab Jamun', category: 'Milk-Based', price: 10, quantity: 15 });
+    shop.addSweet({ name: 'Kaju Katli', category: 'Nut-Based', price: 50, quantity: 20 });
+    shop.addSweet({ name: 'Gulab Jamun', category: 'Milk-Based', price: 10, quantity: 15 });
     setSweets(shop.viewSweets());
   };
 
@@ -55,7 +55,10 @@ const handleRestock = (id, qty) => {
 
       <button onClick={handleView} lassName="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700 transition duration-150 ease-in-out shadow-sm">View All Sweets</button>
       <SweetList sweets={sweets} />
-      <SweetForm onAddSweet={handleAddSweet} />
+     <SweetForm onAddSweet={(sweet) => {
+          shop.addSweet(sweet);
+            setSweets(shop.viewSweets());
+              }} />
       <SearchBar onSearch={handleSearch} />
       <ActionPanel
           onSort={handleSort}

@@ -1,6 +1,7 @@
 class SweetShopService {
   constructor() {
     this.sweets = [];
+    
   }
 
   addSweet(sweet) {
