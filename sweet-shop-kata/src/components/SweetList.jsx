@@ -10,7 +10,7 @@ const SweetList = ({ sweets }) => {
       <table className="min-w-full border border-gray-300 rounded shadow-sm">
         <thead className="bg-gray-100">
           <tr>
-            
+            <th className="border p-2">ID</th> {/* ✅ Re-add this */}
             <th className="border p-2">Name</th>
             <th className="border p-2">Category</th>
             <th className="border p-2">Price (Rs)</th>
