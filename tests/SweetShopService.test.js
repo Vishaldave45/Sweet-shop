@@ -13,3 +13,10 @@ describe('SweetShopService', () => {
     expect(sweets).toContainEqual(sweet);
   });
 });
+
+test('should delete a sweet by ID', () => {
+  const sweet = { id: 2, name: 'Gulab Jamun', category: 'Milk-Based', price: 10, quantity: 50 };
+  shop.addSweet(sweet);
+  shop.deleteSweet(2);
+  expect(shop.viewSweets()).not.toContainEqual(sweet);
+});
