@@ -6,15 +6,14 @@ describe('SweetShopService', () => {
     shop = new SweetShopService();
   });
 
-  test('should add a sweet to the inventory', () => {
+  test('should add a sweet to the shop', () => {
     const sweet = { id: 1, name: 'Kaju Katli', category: 'Nut-Based', price: 50, quantity: 20 };
     shop.addSweet(sweet);
     const sweets = shop.viewSweets();
     expect(sweets).toContainEqual(sweet);
   });
-});
 
-test('should delete a sweet by ID', () => {
+  test('should delete a sweet by ID', () => {
   const sweet = { id: 2, name: 'Gulab Jamun', category: 'Milk-Based', price: 10, quantity: 50 };
   shop.addSweet(sweet);
   shop.deleteSweet(2);
@@ -50,3 +49,6 @@ test('should increase stock when restocked', () => {
   shop.restockSweet(8, 5);
   expect(shop.viewSweets()[0].quantity).toBe(15);
 });
+
+});
+
