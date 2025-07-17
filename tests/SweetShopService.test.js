@@ -33,3 +33,15 @@ test('should sort sweets by price ascending', () => {
   const sorted = shop.sortByPrice();
   expect(sorted[0].price).toBeLessThanOrEqual(sorted[1].price);
 });
+
+test('should decrease quantity when purchased', () => {
+  shop.addSweet({ id: 6, name: 'Soan Papdi', category: 'Flaky', price: 25, quantity: 5 });
+  shop.purchaseSweet(6, 2);
+  expect(shop.viewSweets()[0].quantity).toBe(3);
+});
+
+test('should throw error if not enough stock', () => {
+  shop.addSweet({ id: 7, name: 'Halwa', category: 'Vegetable-Based', price: 35, quantity: 1 });
+  expect(() => shop.purchaseSweet(7, 3)).toThrow('Insufficient stock');
+});
+
