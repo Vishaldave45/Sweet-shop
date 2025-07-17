@@ -26,3 +26,10 @@ test('should search sweets by name', () => {
   const results = shop.searchByName('Rasgulla');
   expect(results.length).toBe(1);
 });
+
+test('should sort sweets by price ascending', () => {
+  shop.addSweet({ id: 4, name: 'Barfi', category: 'Milk-Based', price: 30, quantity: 10 });
+  shop.addSweet({ id: 5, name: 'Ladoo', category: 'Nut-Based', price: 20, quantity: 25 });
+  const sorted = shop.sortByPrice();
+  expect(sorted[0].price).toBeLessThanOrEqual(sorted[1].price);
+});
