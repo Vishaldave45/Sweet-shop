@@ -39,4 +39,4 @@ restockSweet(id, qty) {
 }
 
 
-module.exports = SweetShopService;
+export default SweetShopService;
