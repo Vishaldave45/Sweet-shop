@@ -23,6 +23,14 @@ sortByPrice() {
   return [...this.sweets].sort((a, b) => a.price - b.price);
 }
 
+purchaseSweet(id, qty) {
+  const sweet = this.sweets.find(s => s.id === id);
+  if (!sweet || sweet.quantity < qty) {
+    throw new Error('Insufficient stock');
+  }
+  sweet.quantity -= qty;
+}
+
 }
 
 
