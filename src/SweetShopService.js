@@ -19,6 +19,10 @@ searchByName(name) {
   return this.sweets.filter(s => s.name.toLowerCase().includes(name.toLowerCase()));
 }
 
+sortByPrice() {
+  return [...this.sweets].sort((a, b) => a.price - b.price);
+}
+
 }
 
 
