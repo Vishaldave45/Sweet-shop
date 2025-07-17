@@ -1,11 +1,16 @@
 class SweetShopService {
   constructor() {
     this.sweets = [];
+    this.nextId = 1; // Auto-increment ID counter
     
   }
 
   addSweet(sweet) {
-    this.sweets.push(sweet);
+    const newSweet = {
+      ...sweet,
+      id: sweet.id || this.nextId++, // Auto-assign if not provided
+    };
+    this.sweets.push(newSweet);
   }
 
   viewSweets() {

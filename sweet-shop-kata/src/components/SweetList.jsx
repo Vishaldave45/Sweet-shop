@@ -1,7 +1,7 @@
 import React from 'react';
 
 const SweetList = ({ sweets }) => {
-  if(sweets.length===0){
+  if(!sweets || sweets.length===0){
     return <p className="text-gray-500 mt-4">No sweets available.</p>;
   }
   return (
@@ -10,7 +10,7 @@ const SweetList = ({ sweets }) => {
       <table className="min-w-full border border-gray-300 rounded shadow-sm">
         <thead className="bg-gray-100">
           <tr>
-            <th className="border p-2">ID</th>
+            
             <th className="border p-2">Name</th>
             <th className="border p-2">Category</th>
             <th className="border p-2">Price (Rs)</th>
